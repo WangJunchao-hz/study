@@ -1,0 +1,9 @@
+body{
+    padding: 2.25rem 0 !important;
+}
+header.ui-top-fixed{
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    table-layout: fixed;
+}
