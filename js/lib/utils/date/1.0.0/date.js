@@ -33,7 +33,7 @@
                 resultDate = _getDate(self.now, "yyyy-MM-dd");
                 break;
             case 1:
-                if (/(y+)|(M+)|(d+)|(h+)|(H+)|(m+)|(s+)|(S+)|(E+)|(q+)/.test(arguments[0])) {
+                if (/(y+)|(M+)|(d+)|(h+)|(H+)|(m+)|(s+)|(S+)|(E+)|(q+)/.test(arguments[0]) && !/GMT/.test(arguments[0])) {
                     resultDate = _getDate(self.now, arguments[0]);
                 } else {
                     resultDate = _getDate(new Date(self._getCorrectDate(arguments[0])), "yyyy-MM-dd");
@@ -44,54 +44,138 @@
                 break;
         }
         function _getDate(date, format) {
-            var o = {
-                "M+": date.getMonth() + 1, //月份
-                "d+": date.getDate(), //日
-                "h+": date.getHours() % 12 == 0 ? '上午' + date.getHours() : '下午' + date.getHours() % 12, //小时
-                "H+": date.getHours(), //小时
-                "m+": date.getMinutes(), //分
-                "s+": date.getSeconds(), //秒
-                "q+": Math.floor((date.getMonth() + 3) / 3), //季度
-                "S": date.getMilliseconds() //毫秒
-            };
-            var week = {
-                "0": "日",
-                "1": "一",
-                "2": "二",
-                "3": "三",
-                "4": "四",
-                "5": "五",
-                "6": "六"
-            };
-            if (/(y+)/.test(format)) {
-                format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-            }
-            if (/(E+)/.test(format)) {
-                format = format.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? "星期" : "周") : "") + week[date.getDay() + ""]);
-            }
-            if (/(q+)/.test(format)) {
-                console.log(RegExp.$1.length);
-                format = format.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? (RegExp.$1.length > 3 ? "第" : "") : "") : "") + o["q+"] + ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? (RegExp.$1.length > 3 ? "季度" : "季度") : "季") : ""));
-            }
-            for (var k in o) {
-                if (new RegExp("(" + k + ")").test(format)) {
-                    format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (o[k].length > 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)));
+            try {
+                var o = {
+                    "M+": date.getMonth() + 1, //月份
+                    "d+": date.getDate(), //日
+                    "h+": date.getHours() % 12 == 0 ? '上午' + date.getHours() : '下午' + date.getHours() % 12, //小时
+                    "H+": date.getHours(), //小时
+                    "m+": date.getMinutes(), //分
+                    "s+": date.getSeconds(), //秒
+                    "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+                    "S": date.getMilliseconds() //毫秒
+                };
+                var week = {
+                    "0": "日",
+                    "1": "一",
+                    "2": "二",
+                    "3": "三",
+                    "4": "四",
+                    "5": "五",
+                    "6": "六"
+                };
+                if (/(y+)/.test(format)) {
+                    format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
                 }
+                if (/(E+)/.test(format)) {
+                    format = format.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? "星期" : "周") : "") + week[date.getDay() + ""]);
+                }
+                if (/(q+)/.test(format)) {
+                    format = format.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? (RegExp.$1.length > 3 ? "第" : "") : "") : "") + o["q+"] + ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? (RegExp.$1.length > 3 ? "季度" : "季度") : "季") : ""));
+                }
+                for (var k in o) {
+                    if (new RegExp("(" + k + ")").test(format)) {
+                        format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (o[k].length > 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)));
+                    }
+                }
+                return format;
+            }catch (e){
+                console.log(e);
             }
-            return format;
         }
 
         return resultDate;
     };
 
     /**
-     * @description {获取时间差}
+     * @description {获取时间跨度}
      * @param startDate[String][可选,默认当前时间] 开始时间
-     * @param endDate[String][可选] 结束时间
-     * @param type[String][可选] 结束时间
+     * @param endDate[String][必填 不能为当前时间] 结束时间
+     * @param type[String][可选 默认'year'] 返回形式 'year'由秒-年 'day'由秒-时 天显示日期
      */
-    DatePro.prototype.dif = function () {
+    DatePro.prototype.span = function (startDate,endDate,type) {
+        var self = this,result;
+        switch (arguments.length){
+            case 1:
+                if(arguments[0] === 'year' || arguments[0] === 'day'){
+                    console.log('请输入时间!');
+                }else {
+                    var arg = new Date(self._getCorrectDate(arguments[0]));
+                    if(arg.getTime() == self.now.getTime()){
+                        console.log('不能输入当前时间!');
+                    }else {
+                        result = _factory(self.now,arg,'year');
+                    }
+                }
+                break;
+            case 2:
+                if(arguments[0] === 'year' || arguments[0] === 'day'){
+                    console.log('请输入正确的参数!');
+                }else {
+                    if(arguments[1] === 'year' || arguments[1] === 'day'){
+                        var arg = new Date(self._getCorrectDate(arguments[0]));
+                        if(arg.getTime() == self.now.getTime()){
+                            console.log('不能输入当前时间!');
+                        }else {
+                            result = _factory(self.now,arg,arguments[1]);
+                        }
+                    }else {
+                        var arg1 = new Date(self._getCorrectDate(arguments[0]));
+                        var arg2 = new Date(self._getCorrectDate(arguments[1]));
+                        result = _factory(arg1,arg2,'year');
+                    }
+                }
+                break;
+            case 3:
+                var arg1 = new Date(self._getCorrectDate(arguments[0]));
+                var arg2 = new Date(self._getCorrectDate(arguments[1]));
+                result = _factory(arg1,arg2,arguments[2]);
+            default:
+                console.log('请输入正确的参数!');
+        }
+        function _factory(startDate,endDate,type) {
+            var hisTime = endDate.getTime();
+            var nowTime = startDate.getTime();
+            var dif = nowTime - hisTime;
 
+            var y,M,d,H,m,s,res;
+            s = Math.round(Math.abs(dif)/1000);
+            if(s >= 60){
+                m = Math.round(s/60);
+                if(m >= 60){
+                    H = Math.round(m/60);
+                    if(H > 24){
+                        switch (type){
+                            case 'year':
+                                d = Math.round(H/24);
+                                if(d > 30){ // 以标准月为基数
+                                    M = Math.round(d/30);
+                                    if(M > 12){
+                                        y = Math.round(M/12);
+                                        res = y + '年';
+                                    }else {
+                                        res = M + '月';
+                                    }
+                                }else {
+                                    res = d + '天';
+                                }
+                                break;
+                            case 'day':
+                                res = self.format(endDate);
+                                break;
+                        }
+                    }else {
+                        res = H + '时';
+                    }
+                }else {
+                    res = m + '分';
+                }
+            }else {
+                res = s + '秒';
+            }
+            return res;
+        }
+        return result;
     };
 
     /**
@@ -99,7 +183,7 @@
      *                下午:13:00--17:00 傍晚:17:00--19:00 晚上:19:00--0:00 深夜:0:00--3:00
      * @return period[String]
      */
-    DatePro.prototype.getPeriods = function () {
+    DatePro.prototype.periods = function () {
         var self = this,
             period,
             hours = self.now.getHours(),
@@ -130,7 +214,11 @@
      * @param date[String] 要处理的日期
      */
     DatePro.prototype._getCorrectDate = function (date) {
-        return typeof date === 'string' ? date.replace(/-/g, '/') : date;
+        var d = date;
+        if(typeof d === 'string' && d.indexOf('-') != -1){
+            d = date.replace(/-/g, '/');
+        }
+        return d;
     };
 
     if (typeof module !== 'undefined' && typeof exports === 'object') {
