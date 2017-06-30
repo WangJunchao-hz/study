@@ -6,9 +6,15 @@
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="./css/conf/adaptation.css"/>
     <link rel="stylesheet" type="text/css" href="./css/aui/2.1.0/aui.css"/>
+    <style>
+        #app{
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-<header class="aui-bar aui-bar-nav ui-top-fixed">
+<header id="jHeader" class="aui-bar aui-bar-nav ui-top-fixed">
     <div class="aui-pull-left aui-btn">
         <span class="aui-iconfont aui-icon-left"></span>
     </div>
@@ -28,297 +34,301 @@
         <span class="aui-iconfont aui-icon-comment"></span>
     </div>
 </header>
-<section class="aui-grid">
-    <div class="aui-row">
-        <div class="aui-col-xs-4">
-            <div class="aui-badge">88</div>
-            <i class="aui-iconfont aui-icon-home"></i>
-            <div class="aui-grid-label">首页</div>
-        </div>
-        <div class="aui-col-xs-4">
-            <i class="aui-iconfont aui-icon-gear"></i>
-            <div class="aui-grid-label">设置</div>
-        </div>
-        <div class="aui-col-xs-4">
-            <i class="aui-iconfont aui-icon-map"></i>
-            <div class="aui-grid-label">地图</div>
-        </div>
-        <div class="aui-col-xs-4">
-            <i class="aui-iconfont aui-icon-calendar"></i>
-            <div class="aui-grid-label">日历</div>
-        </div>
-        <div class="aui-col-xs-4">
-            <div class="aui-badge"></div>
-            <i class="aui-iconfont aui-icon-date"></i>
-            <div class="aui-grid-label">日期</div>
-        </div>
-        <div class="aui-col-xs-4">
-            <div class="aui-dot"></div>
-            <i class="aui-iconfont aui-icon-cart"></i>
-            <div class="aui-grid-label">购物车</div>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="aui-card-list">
-        <div class="aui-card-list-header aui-card-list-user aui-border-b">
-            <div class="aui-card-list-user-avatar">
-                <img src="./image/demo4.png" class="aui-img-round"/>
+<section id="app">
+    <div id="scroller">
+        <section class="aui-grid">
+            <div class="aui-row">
+                <div class="aui-col-xs-4">
+                    <div class="aui-badge">88</div>
+                    <i class="aui-iconfont aui-icon-home"></i>
+                    <div class="aui-grid-label">首页</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <i class="aui-iconfont aui-icon-gear"></i>
+                    <div class="aui-grid-label">设置</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <i class="aui-iconfont aui-icon-map"></i>
+                    <div class="aui-grid-label">地图</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <i class="aui-iconfont aui-icon-calendar"></i>
+                    <div class="aui-grid-label">日历</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <div class="aui-badge"></div>
+                    <i class="aui-iconfont aui-icon-date"></i>
+                    <div class="aui-grid-label">日期</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <div class="aui-dot"></div>
+                    <i class="aui-iconfont aui-icon-cart"></i>
+                    <div class="aui-grid-label">购物车</div>
+                </div>
             </div>
-            <div class="aui-card-list-user-name">
-                <div>AUI</div>
-                <small>1天前</small>
+        </section>
+        <section>
+            <div class="aui-card-list">
+                <div class="aui-card-list-header aui-card-list-user aui-border-b">
+                    <div class="aui-card-list-user-avatar">
+                        <img src="./image/demo4.png" class="aui-img-round"/>
+                    </div>
+                    <div class="aui-card-list-user-name">
+                        <div>AUI</div>
+                        <small>1天前</small>
+                    </div>
+                    <div class="aui-card-list-user-info">北京朝阳</div>
+                </div>
+                <div class="aui-card-list-content-padded">
+                    <img src="./image/l2.png"/>
+                </div>
+                <div class="aui-card-list-footer aui-border-t">
+                    <div><i class="aui-iconfont aui-icon-note"></i> 666</div>
+                    <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
+                    <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
+                </div>
             </div>
-            <div class="aui-card-list-user-info">北京朝阳</div>
-        </div>
-        <div class="aui-card-list-content-padded">
-            <img src="./image/l2.png"/>
-        </div>
-        <div class="aui-card-list-footer aui-border-t">
-            <div><i class="aui-iconfont aui-icon-note"></i> 666</div>
-            <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
-            <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
-        </div>
-    </div>
-    <div class="aui-card-list">
-        <div class="aui-card-list-header">
-            <div><i class="aui-iconfont aui-icon-my aui-text-danger"></i><span class="aui-text-danger"> 最近联系人</span>
-            </div>
-            <i class="aui-iconfont aui-icon-more"></i>
-        </div>
-        <div class="aui-card-list-content">
-            <ul class="aui-list aui-media-list">
-                <li class="aui-list-item aui-list-item-middle">
-                    <div class="aui-media-list-item-inner">
-                        <div class="aui-list-item-media" style="width: 3rem;">
-                            <img src="./image/demo5.png" class="aui-img-round">
-                        </div>
-                        <div class="aui-list-item-inner aui-list-item-arrow">
-                            <div class="aui-list-item-text">
-                                <div class="aui-list-item-title aui-font-size-14">AUI</div>
-                                <div class="aui-list-item-right">08:00</div>
+            <div class="aui-card-list">
+                <div class="aui-card-list-header">
+                    <div><i class="aui-iconfont aui-icon-my aui-text-danger"></i><span class="aui-text-danger"> 最近联系人</span>
+                    </div>
+                    <i class="aui-iconfont aui-icon-more"></i>
+                </div>
+                <div class="aui-card-list-content">
+                    <ul class="aui-list aui-media-list">
+                        <li class="aui-list-item aui-list-item-middle">
+                            <div class="aui-media-list-item-inner">
+                                <div class="aui-list-item-media" style="width: 3rem;">
+                                    <img src="./image/demo5.png" class="aui-img-round">
+                                </div>
+                                <div class="aui-list-item-inner aui-list-item-arrow">
+                                    <div class="aui-list-item-text">
+                                        <div class="aui-list-item-title aui-font-size-14">AUI</div>
+                                        <div class="aui-list-item-right">08:00</div>
+                                    </div>
+                                    <div class="aui-list-item-text">
+                                        www.auicss.com
+                                    </div>
+                                </div>
                             </div>
-                            <div class="aui-list-item-text">
-                                www.auicss.com
+                        </li>
+                        <li class="aui-list-item aui-list-item-middle">
+                            <div class="aui-media-list-item-inner">
+                                <div class="aui-list-item-media" style="width: 3rem;">
+                                    <img src="./image/demo1.png" class="aui-img-round">
+                                </div>
+                                <div class="aui-list-item-inner aui-list-item-arrow">
+                                    APICloud AUI
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="aui-card-list-footer aui-text-center">
+                    查看更多
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="aui-timeline">
+                <div class="aui-timeline-item-header">2017年1月8日</div>
+                <div class="aui-timeline-item">
+                    <div class="aui-timeline-item-label aui-bg-info text-light">NO.1</div>
+                    <div class="aui-timeline-item-inner">
+                        <div class="aui-card-list">
+                            <div class="aui-card-list-header aui-border-b">
+                                <div>时间轴回来了</div>
+                                <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
+                            </div>
+                            <div class="aui-card-list-content-padded">
+                                时间轴重新回归了，跟卡片列表布局结合可以完成丰富的布局样式
+                                <img src="./image/l1.png">
+                            </div>
+                            <div class="aui-card-list-footer aui-border-t aui-font-size-12">
+                                <div><i class="aui-iconfont aui-icon-note aui-font-size-14"></i> 666</div>
+                                <div><i class="aui-iconfont aui-icon-laud aui-font-size-14"></i> 888</div>
+                                <div><i class="aui-iconfont aui-icon-star aui-font-size-14"></i> 888</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aui-timeline-item">
+                    <div class="aui-timeline-item-label-icon aui-bg-danger">
+                        <i class="aui-iconfont aui-icon-like text-light"></i>
+                    </div>
+                    <div class="aui-timeline-item-inner">
+                        <div class="aui-card-list">
+                            <div class="aui-card-list-content-padded">
+                                AUI一直在努力，并会持久的更新下去，更方便快速的完成布局。感谢一路有大家的陪伴！！！🌹🌹🌹🌹🌹🌹
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aui-timeline-item">
+                    <div class="aui-timeline-item-label aui-bg-warning text-light">NO.2</div>
+                    <div class="aui-timeline-item-inner">
+                        <div class="aui-card-list">
+                            <div class="aui-card-list-header aui-border-b">更好的组合模式</div>
+                            <div class="aui-card-list-content-padded">
+                                <div class="aui-row aui-row-padded">
+                                    <div class="aui-col-xs-4">
+                                        <img src="./image/demo1.png"/>
+                                    </div>
+                                    <div class="aui-col-xs-4">
+                                        <img src="./image/demo2.png"/>
+                                    </div>
+                                    <div class="aui-col-xs-4">
+                                        <img src="./image/demo3.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aui-timeline-item">
+                    <div class="aui-timeline-item-label aui-bg-success text-light">NO.3</div>
+                    <div class="aui-timeline-item-inner">
+                        <div class="aui-card-list">
+                            <div class="aui-card-list-header aui-border-b">更好的组合模式</div>
+                            <div class="aui-card-list-content">
+                                <ul class="aui-list aui-media-list aui-list-noborder">
+                                    <li class="aui-list-item aui-list-item-middle">
+                                        <div class="aui-media-list-item-inner">
+                                            <div class="aui-list-item-media" style="width: 2.6rem;">
+                                                <img src="./image/demo5.png" class="aui-img-round">
+                                            </div>
+                                            <div class="aui-list-item-inner aui-list-item-arrow">
+                                                <div class="aui-list-item-text">
+                                                    <div class="aui-list-item-title aui-font-size-14">AUI</div>
+                                                    <div class="aui-list-item-right">08:00</div>
+                                                </div>
+                                                <div class="aui-list-item-text">
+                                                    www.auicss.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item aui-list-item-middle">
+                                        <div class="aui-media-list-item-inner">
+                                            <div class="aui-list-item-media" style="width: 2.6rem;">
+                                                <img src="./image/demo1.png" class="aui-img-round">
+                                            </div>
+                                            <div class="aui-list-item-inner aui-list-item-arrow">
+                                                APICloud AUI
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="aui-card-list-footer aui-text-center aui-border-t">
+                                查看更多
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <ul class="aui-list aui-form-list">
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Text
+                        </div>
+                        <div class="aui-list-item-input">
+                            <input type="text" placeholder="Name">
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Password
+                        </div>
+                        <div class="aui-list-item-input">
+                            <input type="password" placeholder="Password">
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Number
+                        </div>
+                        <div class="aui-list-item-input">
+                            <input type="number" placeholder="Number">
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Radio
+                        </div>
+                        <div class="aui-list-item-input">
+                            <label><input class="aui-radio" type="radio" name="demo1" checked> 选项一</label>
+                            <label><input class="aui-radio" type="radio" name="demo1"> 选项二</label>
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Select
+                        </div>
+                        <div class="aui-list-item-input">
+                            <select>
+                                <option>Option1</option>
+                                <option>Option2</option>
+                                <option>Option3</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Switch
+                        </div>
+                        <div class="aui-list-item-input">
+                            <input type="checkbox" class="aui-switch" checked>
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Range
+                        </div>
+                        <div class="aui-list-item-input">
+                            <div class="aui-range">
+                                <input type="range" class="aui-range" value="30" max="100" min="1" step="1" id="range"/>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="aui-list-item aui-list-item-middle">
-                    <div class="aui-media-list-item-inner">
-                        <div class="aui-list-item-media" style="width: 3rem;">
-                            <img src="./image/demo1.png" class="aui-img-round">
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label">
+                            Textarea
                         </div>
-                        <div class="aui-list-item-inner aui-list-item-arrow">
-                            APICloud AUI
+                        <div class="aui-list-item-input">
+                            <textarea placeholder="Textarea"></textarea>
                         </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
+                        <div class="aui-btn aui-btn-info aui-margin-r-5">提交</div>
+                        <div class="aui-btn aui-btn-danger aui-margin-l-5">取消</div>
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="aui-card-list-footer aui-text-center">
-            查看更多
-        </div>
+        </section>
     </div>
 </section>
-<section>
-    <div class="aui-timeline">
-        <div class="aui-timeline-item-header">2017年1月8日</div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label aui-bg-info text-light">NO.1</div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-header aui-border-b">
-                        <div>时间轴回来了</div>
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-card-list-content-padded">
-                        时间轴重新回归了，跟卡片列表布局结合可以完成丰富的布局样式
-                        <img src="./image/l1.png">
-                    </div>
-                    <div class="aui-card-list-footer aui-border-t aui-font-size-12">
-                        <div><i class="aui-iconfont aui-icon-note aui-font-size-14"></i> 666</div>
-                        <div><i class="aui-iconfont aui-icon-laud aui-font-size-14"></i> 888</div>
-                        <div><i class="aui-iconfont aui-icon-star aui-font-size-14"></i> 888</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label-icon aui-bg-danger">
-                <i class="aui-iconfont aui-icon-like text-light"></i>
-            </div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-content-padded">
-                        AUI一直在努力，并会持久的更新下去，更方便快速的完成布局。感谢一路有大家的陪伴！！！🌹🌹🌹🌹🌹🌹
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label aui-bg-warning text-light">NO.2</div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-header aui-border-b">更好的组合模式</div>
-                    <div class="aui-card-list-content-padded">
-                        <div class="aui-row aui-row-padded">
-                            <div class="aui-col-xs-4">
-                                <img src="./image/demo1.png"/>
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="./image/demo2.png"/>
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="./image/demo3.png"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label aui-bg-success text-light">NO.3</div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-header aui-border-b">更好的组合模式</div>
-                    <div class="aui-card-list-content">
-                        <ul class="aui-list aui-media-list aui-list-noborder">
-                            <li class="aui-list-item aui-list-item-middle">
-                                <div class="aui-media-list-item-inner">
-                                    <div class="aui-list-item-media" style="width: 2.6rem;">
-                                        <img src="./image/demo5.png" class="aui-img-round">
-                                    </div>
-                                    <div class="aui-list-item-inner aui-list-item-arrow">
-                                        <div class="aui-list-item-text">
-                                            <div class="aui-list-item-title aui-font-size-14">AUI</div>
-                                            <div class="aui-list-item-right">08:00</div>
-                                        </div>
-                                        <div class="aui-list-item-text">
-                                            www.auicss.com
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="aui-list-item aui-list-item-middle">
-                                <div class="aui-media-list-item-inner">
-                                    <div class="aui-list-item-media" style="width: 2.6rem;">
-                                        <img src="./image/demo1.png" class="aui-img-round">
-                                    </div>
-                                    <div class="aui-list-item-inner aui-list-item-arrow">
-                                        APICloud AUI
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="aui-card-list-footer aui-text-center aui-border-t">
-                        查看更多
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section>
-    <ul class="aui-list aui-form-list">
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Text
-                </div>
-                <div class="aui-list-item-input">
-                    <input type="text" placeholder="Name">
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Password
-                </div>
-                <div class="aui-list-item-input">
-                    <input type="password" placeholder="Password">
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Number
-                </div>
-                <div class="aui-list-item-input">
-                    <input type="number" placeholder="Number">
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Radio
-                </div>
-                <div class="aui-list-item-input">
-                    <label><input class="aui-radio" type="radio" name="demo1" checked> 选项一</label>
-                    <label><input class="aui-radio" type="radio" name="demo1"> 选项二</label>
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Select
-                </div>
-                <div class="aui-list-item-input">
-                    <select>
-                        <option>Option1</option>
-                        <option>Option2</option>
-                        <option>Option3</option>
-                    </select>
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Switch
-                </div>
-                <div class="aui-list-item-input">
-                    <input type="checkbox" class="aui-switch" checked>
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Range
-                </div>
-                <div class="aui-list-item-input">
-                    <div class="aui-range">
-                        <input type="range" class="aui-range" value="30" max="100" min="1" step="1" id="range"/>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-label">
-                    Textarea
-                </div>
-                <div class="aui-list-item-input">
-                    <textarea placeholder="Textarea"></textarea>
-                </div>
-            </div>
-        </li>
-        <li class="aui-list-item">
-            <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
-                <div class="aui-btn aui-btn-info aui-margin-r-5">提交</div>
-                <div class="aui-btn aui-btn-danger aui-margin-l-5">取消</div>
-            </div>
-        </li>
-    </ul>
-</section>
-<footer class="aui-bar aui-bar-tab">
+<footer id="jFooter" class="aui-bar aui-bar-tab">
     <div class="aui-bar-tab-item aui-active" tapmode>
         <i class="aui-iconfont aui-icon-home"></i>
         <div class="aui-bar-tab-label">首页</div>
@@ -340,9 +350,50 @@
 </footer>
 </body>
 <script src="./js/lib/utils/date/1.0.0/date.js"></script>
+<script src="./js/plugins/apicloud/1.0.0/api.js"></script>
+<!--<script src="./js/lib/alloy_touch/0.2.5/alloy_touch.js"></script>-->
+<script src="./js/lib/alloy_touch/0.2.5/transform.js"></script>
+<script src="./js/lib/alloy_touch/0.2.5/alloy_touch.css.js"></script>
 <script>
-    console.log(DatePro.format(1498032321025));
-    console.log(DatePro.span(1498032321025,1498032321021,'s'));
-    console.log(DatePro.span(1498032321025));
+    var headerH = $api.offset($api.byId('jHeader')).h;
+    console.log(headerH);
+    var footerH = $api.offset($api.byId('jFooter')).h;
+    console.log(footerH);
+    var height = window.innerHeight;
+    console.log(height);
+    var h = height - headerH - footerH;
+    console.log(h);
+    $api.css($api.byId('app'),'height:'+h+'px');
+    var h2 = parseInt($api.cssVal($api.byId('scroller'),'height'));
+    console.log(h2);
+    var target = document.querySelector("#scroller");
+    Transform(target, true);
+    var alloyTouch = new AlloyTouch({
+        touch: "#app",//反馈触摸的dom
+        vertical: true,//不必需，默认是true代表监听竖直方向touch
+        target: target, //运动的对象
+        property: "translateY",  //被运动的属性
+        min: h - 2100, //不必需,运动属性的最小值
+        max: 0, //不必需,滚动属性的最大值
+        sensitivity: 1,//不必需,触摸区域的灵敏度，默认值为1，可以为负数
+        factor: 1,//不必需,表示触摸位移与被运动属性映射关系，
+        step: 45,//用于校正到step的整数倍
+        bindSelf: false,
+        initialValue: 0,
+        change: function (value) {
+        },
+        touchStart: function (evt, value) {
+        },
+        touchMove: function (evt, value) {
+        },
+        touchEnd: function (evt, value) {
+        },
+        tap: function (evt, value) {
+        },
+        pressMove: function (evt, value) {
+        },
+        animationEnd: function (value) {
+        } //运动结束
+    })
 </script>
 </html>
