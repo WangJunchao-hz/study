@@ -122,7 +122,7 @@
                     }else {
                         var arg1 = new Date(self._getCorrectDate(arguments[0]));
                         var arg2 = new Date(self._getCorrectDate(arguments[1]));
-                        result = _factory(arg1,arg2,'year');
+                        result = _factory(arg1,arg2,'S');
                     }
                 }
                 break;
@@ -130,6 +130,7 @@
                 var arg1 = new Date(self._getCorrectDate(arguments[0]));
                 var arg2 = new Date(self._getCorrectDate(arguments[1]));
                 result = _factory(arg1,arg2,arguments[2]);
+                break;
             default:
                 console.log('请输入正确的参数!');
         }
@@ -139,40 +140,72 @@
             var dif = nowTime - hisTime;
 
             var y,M,d,H,m,s,res;
-            s = Math.round(Math.abs(dif)/1000);
-            if(s >= 60){
-                m = Math.round(s/60);
-                if(m >= 60){
-                    H = Math.round(m/60);
-                    if(H > 24){
-                        switch (type){
-                            case 'year':
-                                d = Math.round(H/24);
-                                if(d > 30){ // 以标准月为基数
-                                    M = Math.round(d/30);
-                                    if(M > 12){
-                                        y = Math.round(M/12);
-                                        res = y + '年';
+            if(type === 'year' || type === 'day'){
+                s = Math.round(Math.abs(dif)/1000);
+                if(s >= 60){
+                    m = Math.round(s/60);
+                    if(m >= 60){
+                        H = Math.round(m/60);
+                        if(H > 24){
+                            switch (type){
+                                case 'year':
+                                    d = Math.round(H/24);
+                                    if(d > 30){ // 以标准月为基数
+                                        M = Math.round(d/30);
+                                        if(M > 12){
+                                            y = Math.round(M/12);
+                                            res = y + '年';
+                                        }else {
+                                            res = M + '月';
+                                        }
                                     }else {
-                                        res = M + '月';
+                                        res = d + '天';
                                     }
-                                }else {
-                                    res = d + '天';
-                                }
-                                break;
-                            case 'day':
-                                res = self.format(endDate);
-                                break;
+                                    break;
+                                case 'day':
+                                    res = self.format(endDate);
+                                    break;
+                            }
+                        }else {
+                            res = H + '时';
                         }
                     }else {
-                        res = H + '时';
+                        res = m + '分';
                     }
                 }else {
-                    res = m + '分';
+                    res = s + '秒';
                 }
             }else {
-                res = s + '秒';
+                s = (Math.abs(dif)/1000).toFixed(4);
+                m = (s/60).toFixed(4);
+                H = (m/60).toFixed(4);
+                d = (H/24).toFixed(4);
+                M = (d/30).toFixed(4);
+                y = (M/12).toFixed(4);
+                switch (type) {
+                    case 'y':
+                        res = y;
+                        break;
+                    case 'M':
+                        res = M;
+                        break;
+                    case 'd':
+                        res = d;
+                        break;
+                    case 'H':
+                        res = H;
+                        break;
+                    case 'm':
+                        res = m;
+                        break;
+                    case 's':
+                        res = s;
+                        break;
+                    default:
+                        res = dif;
+                }
             }
+
             return res;
         }
         return result;
